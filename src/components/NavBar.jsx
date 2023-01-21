@@ -11,6 +11,12 @@ const NavBar = () => {
             <Heading size="md">CoderCommerce</Heading>
           </Box>
           <Spacer />
+          <Box>
+            <a href="*">MTB</a>
+            <a href="*">Ruta</a>
+            <a href="*">BMX</a>
+          </Box>
+          <Spacer />
           <Box p="10" w="300px" h="100">
             <CartWidget />
           </Box>
