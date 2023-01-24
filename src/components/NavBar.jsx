@@ -1,6 +1,19 @@
 import React from "react";
 import CartWidget from "./CartWidget";
-import { Flex, Box, Spacer, Heading, Container } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Spacer,
+  Heading,
+  Container,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@chakra-ui/react";
+
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
   return (
@@ -12,9 +25,22 @@ const NavBar = () => {
           </Box>
           <Spacer />
           <Box>
-            <a href="*">MTB</a>
-            <a href="*">Ruta</a>
-            <a href="*">BMX</a>
+            <Menu>
+              <MenuButton
+                as={Button}
+                size="lg"
+                variant="outline"
+                colorScheme="blue"
+                rightIcon={<ChevronDownIcon />}
+              >
+                Categorias
+              </MenuButton>
+              <MenuList className="menu-list">
+                <MenuItem>MTB</MenuItem>
+                <MenuItem>Ruta</MenuItem>
+                <MenuItem>BMX</MenuItem>
+              </MenuList>
+            </Menu>
           </Box>
           <Spacer />
           <Box p="10" w="300px" h="100">
