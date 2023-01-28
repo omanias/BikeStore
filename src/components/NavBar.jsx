@@ -11,6 +11,7 @@ import {
   MenuList,
   MenuItem,
   Button,
+  Avatar,
 } from "@chakra-ui/react";
 
 import { ChevronDownIcon } from "@chakra-ui/icons";
@@ -18,10 +19,14 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 const NavBar = () => {
   return (
     <>
-      <Container maxW="100rem" bg="blue.100" color="#262626">
+      <Container maxW="150rem" bg="blue.100" color="#262626">
         <Flex alignItems="center" gap="2">
+          <Avatar
+            size="xl"
+            src="https://mejorconsalud.as.com/fitness/wp-content/uploads/2021/10/mujer-ciclista-entrena-competencia-1024x683.jpg"
+          />
           <Box p="10" w="300px" h="100">
-            <Heading size="md">CoderCommerce</Heading>
+            <Heading size="md">BikeStore</Heading>
           </Box>
           <Spacer />
           <Box>
