@@ -33,6 +33,24 @@ const ItemList = () => {
     },
   ];
 
+  const showBikes = new Promise((resolve, reject) => {
+    if (bikes.length > 0) {
+      setTimeout(() => {
+        resolve(bikes);
+      }, 3000);
+    } else {
+      reject("Empty catalogue");
+    }
+  });
+
+  showBikes
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   return (
     <>
       <Container maxW="container.sm" className="main-catalogue">
