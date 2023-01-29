@@ -33,7 +33,7 @@ const ItemList = () => {
     },
   ];
 
-  const showBikes = new Promise((resolve, reject) => {
+  /* const showBikes = new Promise((resolve, reject) => {
     if (bikes.length > 0) {
       setTimeout(() => {
         resolve(bikes);
@@ -50,6 +50,19 @@ const ItemList = () => {
     .catch((error) => {
       console.log(error);
     });
+ */
+
+  // showBikes a async function
+  const showBikes = async () => {
+    try {
+      const result = await bikes;
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  showBikes();
 
   return (
     <>
