@@ -14,7 +14,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-const Item = ({ id, name, description, price }) => {
+const Item = ({ id, name, description, price, stock }) => {
   return (
     <div>
       <div key={id}>
@@ -28,6 +28,9 @@ const Item = ({ id, name, description, price }) => {
                 <Text color="blue.600" fontSize="2xl">
                   US$ {price}
                 </Text>
+                <Text color="red.600" fontSize="xl">
+                  stock: {stock}
+                </Text>
               </Stack>
             </CardBody>
             <Divider />
@@ -37,7 +40,7 @@ const Item = ({ id, name, description, price }) => {
                   Details
                 </Button>
               </Center>
-              <ItemCount />
+              <ItemCount stock={stock} />
             </CardFooter>
           </Card>
         </Center>

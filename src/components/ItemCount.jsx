@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button, ButtonGroup, IconButton } from "@chakra-ui/react";
+import { Button, ButtonGroup, IconButton, Tooltip } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
-const ItemCount = () => {
+const ItemCount = ({ stock }) => {
   const [count, setCount] = useState(1);
 
   const onAdd = () => {
@@ -17,17 +17,21 @@ const ItemCount = () => {
     <>
       <ButtonGroup size="sm" isAttached variant="outline">
         {count < 1 ? (
-          <IconButton icon={<MinusIcon />} isDisabled />
+          <Tooltip label="minimum stock reached" placement="bottom">
+            <IconButton icon={<MinusIcon />} isDisabled />
+          </Tooltip>
         ) : (
           <IconButton icon={<MinusIcon />} onClick={onSubstract} />
         )}
 
         <Button>Buy {count}</Button>
 
-        {count <= 4 ? (
+        {count < stock ? (
           <IconButton icon={<AddIcon />} onClick={onAdd} />
         ) : (
-          <IconButton icon={<AddIcon />} isDisabled />
+          <Tooltip label="stock limit reached" placement="bottom">
+            <IconButton icon={<AddIcon />} isDisabled />
+          </Tooltip>
         )}
       </ButtonGroup>
     </>

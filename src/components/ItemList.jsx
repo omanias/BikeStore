@@ -9,6 +9,7 @@ const ItemList = () => {
       price: 100,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+      stock: 3,
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ const ItemList = () => {
       price: 200,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+      stock: 8,
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ const ItemList = () => {
       price: 300,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+      stock: 3,
     },
     {
       id: 4,
@@ -30,6 +33,7 @@ const ItemList = () => {
       price: 400,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+      stock: 5,
     },
   ];
 
@@ -75,6 +79,7 @@ const ItemList = () => {
                 name={bike.name}
                 price={bike.price}
                 description={bike.description}
+                stock={bike.stock}
               />
             </div>
           );
