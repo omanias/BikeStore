@@ -37,36 +37,29 @@ const ItemList = () => {
     },
   ];
 
-  /* const showBikes = new Promise((resolve, reject) => {
-    if (bikes.length > 0) {
+  const getDatos = () => {
+    return new Promise((resolve, reject) => {
+      if (bikes.length === 0) {
+        reject(new Error("No hay datos"));
+      }
       setTimeout(() => {
         resolve(bikes);
-      }, 3000);
-    } else {
-      reject("Empty catalogue");
-    }
-  });
-
-  showBikes
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.log(error);
+      }, 2000);
     });
- */
-
-  // showBikes a async function
-  const showBikes = async () => {
-    try {
-      const result = await bikes;
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
-  showBikes();
+  // getDatos().then((bikes) => console.log(bikes));
+
+  async function fetchingData() {
+    try {
+      const datosFetched = await getDatos();
+      console.log(datosFetched);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  fetchingData();
 
   return (
     <>
