@@ -1,35 +1,36 @@
-import React from "react";
-import bike from "../assets/x-blaze.png";
+import ItemCount from "./ItemCount";
 import {
-  Center,
+  Button,
   Card,
   CardBody,
-  Image,
-  Heading,
-  Text,
-  Divider,
-  Stack,
   CardFooter,
-  Button,
+  Center,
+  Divider,
+  Heading,
+  Image,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
 
-const Item = ({ id, name, description, price, stock, category }) => {
+const ItemDetail = () => {
   return (
-    <div>
-      <div key={id}>
+    <>
+      <div>
         <Center p="1rem">
           <Card className="card-main">
             <CardBody>
-              <Image borderRadius="lg" src={bike} />
+              <Image borderRadius="lg" src={""} />
               <Stack mt="6" spacing="3">
-                <Heading size="md">{name}</Heading>
-
+                <Heading size="md">{"nombre del producto"}</Heading>
+                <Text>{"description"}</Text>
                 <Text color="blue.800" fontSize="l">
-                  Category: {category}
+                  Category: {"category"}
+                </Text>
+                <Text color="blue.600" fontSize="2xl">
+                  US$ {"price"}
                 </Text>
                 <Text color="red.600" fontSize="xl">
-                  stock: {stock}
+                  stock: {"stock"}
                 </Text>
               </Stack>
             </CardBody>
@@ -37,16 +38,16 @@ const Item = ({ id, name, description, price, stock, category }) => {
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button variant="solid" colorScheme="blue">
-                  <NavLink to={`/item/${id}`}>Details</NavLink>
+                  Buy
                 </Button>
               </Center>
-              {/* <ItemCount stock={stock} /> */}
+              <ItemCount stock={"stock"} />
             </CardFooter>
           </Card>
         </Center>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Item;
+export default ItemDetail;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import {
   Flex,
@@ -26,10 +27,25 @@ const NavBar = () => {
             src="https://mejorconsalud.as.com/fitness/wp-content/uploads/2021/10/mujer-ciclista-entrena-competencia-1024x683.jpg"
           />
           <Box p="10" w="300px" h="100">
-            <Heading size="md">BikeStore</Heading>
+            <Heading size="md">
+              <Link to={"/"}>BikeStore</Link>
+            </Heading>
           </Box>
           <Spacer />
           <Box>
+            <Menu>
+              <Link to={"/catalogue"}>
+                <MenuButton
+                  as={Button}
+                  size="lg"
+                  variant="outline"
+                  colorScheme="blue"
+                  m="5"
+                >
+                  Catalogue
+                </MenuButton>
+              </Link>
+            </Menu>
             <Menu>
               <MenuButton
                 as={Button}
@@ -37,19 +53,28 @@ const NavBar = () => {
                 variant="outline"
                 colorScheme="blue"
                 rightIcon={<ChevronDownIcon />}
+                m="5"
               >
-                Categorias
+                Categories
               </MenuButton>
               <MenuList className="menu-list">
-                <MenuItem>MTB</MenuItem>
-                <MenuItem>Ruta</MenuItem>
-                <MenuItem>BMX</MenuItem>
+                <NavLink to={`/category/${"MTB"}`}>
+                  <MenuItem>MTB</MenuItem>
+                </NavLink>
+                <NavLink to={`/category/${"Route"}`}>
+                  <MenuItem>Route</MenuItem>
+                </NavLink>
+                <NavLink to={`/category/${"BMX"}`}>
+                  <MenuItem>BMX</MenuItem>
+                </NavLink>
               </MenuList>
             </Menu>
           </Box>
           <Spacer />
           <Box p="10" w="300px" h="100">
-            <CartWidget />
+            <NavLink to={"/cart"}>
+              <CartWidget />
+            </NavLink>
           </Box>
         </Flex>
       </Container>

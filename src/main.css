@@ -34,3 +34,12 @@
     margin: 1rem;
 }
 
+.welcome-container{
+    padding: 10rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
