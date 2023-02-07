@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import {
   Flex,
@@ -58,23 +58,23 @@ const NavBar = () => {
                 Categories
               </MenuButton>
               <MenuList className="menu-list">
-                <NavLink to={`/category/${"MTB"}`}>
+                <Link to={`/category/${"MTB"}`}>
                   <MenuItem>MTB</MenuItem>
-                </NavLink>
-                <NavLink to={`/category/${"Route"}`}>
+                </Link>
+                <Link to={`/category/${"Route"}`}>
                   <MenuItem>Route</MenuItem>
-                </NavLink>
-                <NavLink to={`/category/${"BMX"}`}>
+                </Link>
+                <Link to={`/category/${"BMX"}`}>
                   <MenuItem>BMX</MenuItem>
-                </NavLink>
+                </Link>
               </MenuList>
             </Menu>
           </Box>
           <Spacer />
           <Box p="10" w="300px" h="100">
-            <NavLink to={"/cart"}>
+            <Link to={"/cart"}>
               <CartWidget />
-            </NavLink>
+            </Link>
           </Box>
         </Flex>
       </Container>
