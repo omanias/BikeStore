@@ -12,9 +12,9 @@ import {
   CardFooter,
   Button,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Item = ({ id, name, description, price, stock, category }) => {
+const Item = ({ id, name, stock, category }) => {
   return (
     <div>
       <div key={id}>
@@ -29,7 +29,7 @@ const Item = ({ id, name, description, price, stock, category }) => {
                   Category: {category}
                 </Text>
                 <Text color="red.600" fontSize="xl">
-                  stock: {stock}
+                  Stock: {stock}
                 </Text>
               </Stack>
             </CardBody>
@@ -37,10 +37,9 @@ const Item = ({ id, name, description, price, stock, category }) => {
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button variant="solid" colorScheme="blue">
-                  <NavLink to={`/item/${id}`}>Details</NavLink>
+                  <Link to={`/item/${id}`}>Details</Link>
                 </Button>
               </Center>
-              {/* <ItemCount stock={stock} /> */}
             </CardFooter>
           </Card>
         </Center>

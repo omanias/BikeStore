@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Button, ButtonGroup, IconButton, Tooltip } from "@chakra-ui/react";
+import {
+  Text,
+  ButtonGroup,
+  IconButton,
+  Tooltip,
+  Center,
+} from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const ItemCount = ({ stock }) => {
@@ -23,9 +29,9 @@ const ItemCount = ({ stock }) => {
         ) : (
           <IconButton icon={<MinusIcon />} onClick={onSubstract} />
         )}
-
-        <Button>Buy {count}</Button>
-
+        <Center w="50px" h="30px">
+          <Text as="b">{count}</Text>
+        </Center>
         {count < stock ? (
           <IconButton icon={<AddIcon />} onClick={onAdd} />
         ) : (

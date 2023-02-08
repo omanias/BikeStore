@@ -1,48 +1,10 @@
 import ItemList from "./ItemList";
 import { Center, Heading } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import bikes from "../data.json";
 
 const ItemListContainer = () => {
   const { category } = useParams();
-  console.log(category);
-  const bikes = [
-    {
-      id: 1,
-      name: "Bike 1",
-      price: 100,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-      stock: 3,
-      category: "MTB",
-    },
-    {
-      id: 2,
-      name: "Bike 2",
-      price: 200,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-      stock: 8,
-      category: "Route",
-    },
-    {
-      id: 3,
-      name: "Bike 3",
-      price: 300,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-      stock: 3,
-      category: "BMX",
-    },
-    {
-      id: 4,
-      name: "Bike 4",
-      price: 400,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-      stock: 5,
-      category: "MTB",
-    },
-  ];
 
   const getDatos = () => {
     return new Promise((resolve, reject) => {
@@ -79,7 +41,6 @@ const ItemListContainer = () => {
     );
   } else {
     const catFilter = bikes.filter((bike) => bike.category === category);
-    console.log(catFilter);
 
     return (
       <div>
@@ -89,9 +50,9 @@ const ItemListContainer = () => {
           </Heading>
         </Center>
         {catFilter ? (
-          <ItemList bikes={catFilter} />
+          <ItemList dataBikes={catFilter} />
         ) : (
-          <ItemList bikes={bikes} />
+          <ItemList dataBikes={catFilter} bikes={bikes} />
         )}
       </div>
     );
