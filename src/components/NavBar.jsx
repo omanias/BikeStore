@@ -15,7 +15,6 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-
 const NavBar = () => {
   return (
     <>
@@ -57,13 +56,13 @@ const NavBar = () => {
                 Categories
               </MenuButton>
               <MenuList className="menu-list">
-                <Link to={"/catalogue/MTB"}>
+                <Link to={`/category/MTB`}>
                   <MenuItem>MTB</MenuItem>
                 </Link>
-                <Link to={"/catalogue/Route"}>
+                <Link to={`/category/Route`}>
                   <MenuItem>Route</MenuItem>
                 </Link>
-                <Link to={"/catalogue/BMX"}>
+                <Link to={`/category/BMX`}>
                   <MenuItem>BMX</MenuItem>
                 </Link>
               </MenuList>

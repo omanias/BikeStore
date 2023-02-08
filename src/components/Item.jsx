@@ -13,7 +13,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
 const Item = ({ id, name, stock, category }) => {
   return (
     <div>
