@@ -1,13 +1,13 @@
 import ItemDetail from "./ItemDetail";
-import bikes from "../data.json";
+import Data from "../data.json";
 const ItemDetailContainer = () => {
   const getDatos = () => {
     return new Promise((resolve, reject) => {
-      if (bikes.length === 0) {
+      if (Data.length === 0) {
         reject(new Error("No hay datos"));
       }
       setTimeout(() => {
-        resolve(bikes);
+        resolve(Data);
       }, 2000);
     });
   };
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
   fetchingData();
   return (
     <>
-      <ItemDetail bikes={bikes} />
+      <ItemDetail bikes={Data} />
     </>
   );
 };

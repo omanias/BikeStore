@@ -56,13 +56,13 @@ const NavBar = () => {
                 Categories
               </MenuButton>
               <MenuList className="menu-list">
-                <Link to={`/category/MTB`}>
+                <Link to={`/category/${"MTB"}`}>
                   <MenuItem>MTB</MenuItem>
                 </Link>
-                <Link to={`/category/Route`}>
+                <Link to={`/category/${"Route"}`}>
                   <MenuItem>Route</MenuItem>
                 </Link>
-                <Link to={`/category/BMX`}>
+                <Link to={`/category/${"BMX"}`}>
                   <MenuItem>BMX</MenuItem>
                 </Link>
               </MenuList>

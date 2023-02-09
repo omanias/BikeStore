@@ -1,13 +1,17 @@
 import ItemList from "./ItemList";
-import bikes from "../data.json";
+import Data from "../data.json";
+import { useParams } from "react-router-dom";
+import { Heading, Center } from "@chakra-ui/react";
 const ItemListContainer = () => {
+  const { category } = useParams();
+
   const getDatos = () => {
     return new Promise((resolve, reject) => {
-      if (bikes.length === 0) {
+      if (Data.length === 0) {
         reject(new Error("No hay datos"));
       }
       setTimeout(() => {
-        resolve(bikes);
+        resolve(Data);
       }, 2000);
     });
   };
@@ -22,15 +26,30 @@ const ItemListContainer = () => {
 
   fetchingData();
 
-  const cat = bikes.map((bike) => {
-    return bike.category;
-  });
-
-  return (
-    <>
-      <ItemList bikes={bikes} cat={cat} />
-    </>
-  );
+  if (category === undefined) {
+    return (
+      <div>
+        <Center bg="#D6EAF8" h="100px" color="black">
+          <Heading as="h2" size="2xl">
+            Bikes Catalogue
+          </Heading>
+        </Center>
+        <ItemList bikes={Data} />
+      </div>
+    );
+  } else {
+    const catFilter = Data.filter((bike) => bike.category === category);
+    return (
+      <div>
+        <Center bg="#D6EAF8" h="100px" color="black">
+          <Heading as="h2" size="2xl">
+            Bikes by Category
+          </Heading>
+        </Center>
+        {catFilter ? <ItemList bikes={catFilter} /> : <ItemList bikes={Data} />}
+      </div>
+    );
+  }
 };
 
 export default ItemListContainer;
