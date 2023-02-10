@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Heading, Center } from "@chakra-ui/react";
 const ItemListContainer = () => {
   const { category } = useParams();
+  console.log(category)
 
   const getDatos = () => {
     return new Promise((resolve, reject) => {

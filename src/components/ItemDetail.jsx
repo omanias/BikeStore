@@ -29,7 +29,7 @@ const ItemDetail = ({ bikes }) => {
                 <Stack mt="6" spacing="3">
                   <Heading size="md">{bike.name}</Heading>
                   <Text color="blue.800" fontSize="l">
-                    Category: {bike.description}
+                    Description: {bike.description}
                   </Text>
                   <Text color="blue.800" fontSize="l">
                     Category: {bike.category}
