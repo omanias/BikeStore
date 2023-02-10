@@ -44,7 +44,7 @@ const ItemDetail = ({ bikes }) => {
               </CardBody>
               <Divider />
               <CardFooter className="card-footer">
-                <ItemCount />
+                <ItemCount stock={bike.stock} />
                 <Center className="btn-center">
                   <Button variant="solid" colorScheme="blue">
                     Buy
