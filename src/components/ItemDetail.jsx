@@ -9,6 +9,7 @@ import {
   Button,
   CardFooter,
   Divider,
+  Alert,
 } from "@chakra-ui/react";
 import bikeImage from "../assets/x-blaze.png";
 import { useParams } from "react-router-dom";
@@ -18,6 +19,11 @@ const ItemDetail = ({ bikes }) => {
   const { id } = useParams();
 
   const bikeFilter = bikes.filter((bike) => bike.id == id);
+
+  const addToCart = () => {
+    console.log("Added to cart");
+  };
+
   return (
     <>
       {bikeFilter.map((bike) => (
@@ -46,7 +52,11 @@ const ItemDetail = ({ bikes }) => {
               <CardFooter className="card-footer">
                 <ItemCount stock={bike.stock} />
                 <Center className="btn-center">
-                  <Button variant="solid" colorScheme="blue">
+                  <Button
+                    variant="solid"
+                    colorScheme="blue"
+                    onClick={() => addToCart()}
+                  >
                     Buy
                   </Button>
                 </Center>

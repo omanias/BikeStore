@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Text,
   ButtonGroup,
@@ -10,14 +10,22 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const ItemCount = ({ stock }) => {
   const [count, setCount] = useState(1);
+  const [qty, setQty] = useState(1);
 
   const onAdd = () => {
     setCount(count + 1);
+    setQty(qty + 1);
   };
 
   const onSubstract = () => {
     setCount(count - 1);
+    setQty(qty - 1);
   };
+
+  useEffect(() => {
+    setQty(count);
+    console.log(qty);
+  }, [qty]);
 
   return (
     <>
@@ -40,6 +48,7 @@ const ItemCount = ({ stock }) => {
           </Tooltip>
         )}
       </ButtonGroup>
+      <p>cantidad seleccionada: {qty}</p>
     </>
   );
 };
