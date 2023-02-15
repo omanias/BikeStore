@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import Data from "../data.json";
 import { useParams } from "react-router-dom";
@@ -5,26 +6,17 @@ import { Heading, Center } from "@chakra-ui/react";
 const ItemListContainer = () => {
   const { category } = useParams();
 
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (Data.length === 0) {
-        reject(new Error("No hay datos"));
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000);
-    });
-  };
+  const [bikes, setBikes] = useState([]);
+  console.log(bikes);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(Data);
+      const data = await response.json();
+      setData(bikes);
     }
-  }
-
-  fetchingData();
+    fetchData();
+  }, []);
 
   const catFilter = Data.filter((bike) => bike.category === category);
   return (
