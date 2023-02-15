@@ -4,14 +4,18 @@ import Data from "../data.json";
 import { useParams } from "react-router";
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  console.log(id);
+
   const [bikes, setBikes] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(Data);
-      const data = await response.json();
-      setData(bikes);
+      try {
+        const response = await fetch(Data);
+        const data = await response.json();
+        setBikes(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchData();
   }, []);

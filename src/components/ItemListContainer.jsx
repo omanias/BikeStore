@@ -7,13 +7,16 @@ const ItemListContainer = () => {
   const { category } = useParams();
 
   const [bikes, setBikes] = useState([]);
-  console.log(bikes);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(Data);
-      const data = await response.json();
-      setData(bikes);
+      try {
+        const response = await fetch(Data);
+        const data = await response.json();
+        setBikes(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchData();
   }, []);
