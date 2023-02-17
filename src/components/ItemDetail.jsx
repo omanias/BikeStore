@@ -17,6 +17,7 @@ import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ bikes }) => {
   const { id } = useParams();
+  // console.log(id);
 
   const bikeFilter = bikes.filter((bike) => bike.id == id);
 
