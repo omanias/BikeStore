@@ -6,9 +6,9 @@ import { Heading, Center } from "@chakra-ui/react";
 const ItemListContainer = () => {
   const { category } = useParams();
 
-  const [bikes, setBikes] = useState([]);
+  // const [bikes, setBikes] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(Data);
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
       }
     }
     fetchData();
-  }, []);
+  }, []); */
 
   const catFilter = Data.filter((bike) => bike.category === category);
   return (

@@ -20,10 +20,6 @@ const ItemDetail = ({ bikes }) => {
 
   const bikeFilter = bikes.filter((bike) => bike.id == id);
 
-  const addToCart = () => {
-    console.log("Added to cart");
-  };
-
   return (
     <>
       {bikeFilter.map((bike) => (
@@ -51,15 +47,6 @@ const ItemDetail = ({ bikes }) => {
               <Divider />
               <CardFooter className="card-footer">
                 <ItemCount stock={bike.stock} />
-                <Center className="btn-center">
-                  <Button
-                    variant="solid"
-                    colorScheme="blue"
-                    onClick={() => addToCart()}
-                  >
-                    Buy
-                  </Button>
-                </Center>
               </CardFooter>
             </Card>
           </Center>

@@ -5,9 +5,9 @@ import { useParams } from "react-router";
 const ItemDetailContainer = () => {
   const { id } = useParams();
 
-  const [bikes, setBikes] = useState([]);
+  // const [bikes, setBikes] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(Data);
@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
       }
     }
     fetchData();
-  }, []);
+  }, []); */
 
   const bikeFilter = Data.filter((bike) => bike.id == id);
 

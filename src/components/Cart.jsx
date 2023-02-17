@@ -6,21 +6,20 @@ import {
   Button,
   Container,
   Box,
-  Flex,
   Textarea,
+  Center,
+  Heading,
 } from "@chakra-ui/react";
-import { useContext } from "react";
 
-import { CartContext } from "../context/CartContext";
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
-  console.log(cart);
   return (
     <>
-      <h3>Productos seleccionados</h3>
-      {cart.map((item) => {
-        <h4>{item.title}</h4>;
-      })}
+      <Center bg="#D6EAF8" h="100px" color="black">
+        <Heading as="h2" size="2xl">
+          Cart
+        </Heading>
+      </Center>
+      <h3>Productos en carrito</h3>
       <Container className="cart-container">
         <FormControl>
           <Box>
