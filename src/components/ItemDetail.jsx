@@ -46,7 +46,12 @@ const ItemDetail = ({ bikes }) => {
               </CardBody>
               <Divider />
               <CardFooter className="card-footer">
-                <ItemCount stock={bike.stock} />
+                <ItemCount
+                  stock={bike.stock}
+                  id={bike.id}
+                  price={bike.price}
+                  name={bike.name}
+                />
               </CardFooter>
             </Card>
           </Center>
