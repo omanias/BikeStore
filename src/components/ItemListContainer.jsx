@@ -1,36 +1,28 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import Data from "../data.json";
 import { useParams } from "react-router-dom";
 import { Heading, Center } from "@chakra-ui/react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 const ItemListContainer = () => {
+  const [bikes, setBikes] = useState([]);
   const { category } = useParams();
-  // console.log(category);
 
-  // const [bikes, setBikes] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const bikesCollection = collection(db, "bicicletas");
+    getDocs(bikesCollection).then((querySnapshot) => {
+      const bikes = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setBikes(bikes);
+    });
+  }, []);
 
-  /*   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(Data);
-        const data = await response.json();
-        setBikes(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []); */
-
-  const catFilter = Data.filter((bike) => bike.category === category);
+  const catFilter = bikes.filter((bike) => bike.category === category);
   return (
     <div>
-      <Center bg="#D6EAF8" h="100px" color="black">
-        <Heading as="h2" size="2xl">
-          Bikes by Category
-        </Heading>
-      </Center>
-      {category ? <ItemList bikes={catFilter} /> : <ItemList bikes={Data} />}
+      {category ? <ItemList bikes={catFilter} /> : <ItemList bikes={bikes} />}
     </div>
   );
 };

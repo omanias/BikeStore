@@ -6,18 +6,36 @@ import {
   Stack,
   Heading,
   Text,
-  Button,
   CardFooter,
   Divider,
-  Alert,
 } from "@chakra-ui/react";
 import bikeImage from "../assets/x-blaze.png";
 import { useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
+import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+
 const ItemDetail = ({ bikes }) => {
   const { id } = useParams();
-  // console.log(id);
+
+  const [producto, setProducto] = useState([]);
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const biciRef = doc(db, "bicicletas", `${id}`);
+
+    getDoc(biciRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        // console.log("Document data:", snapshot.data());
+        setProducto(snapshot.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    });
+  }, []);
 
   const bikeFilter = bikes.filter((bike) => bike.id == id);
 
