@@ -15,6 +15,7 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+
 const NavBar = () => {
   return (
     <>

@@ -9,7 +9,6 @@ import {
   CardFooter,
   Divider,
 } from "@chakra-ui/react";
-// import bikeImage from "../assets/x-blaze.png";
 import { useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 

@@ -1,5 +1,6 @@
 import Item from "./Item";
 import { Container } from "@chakra-ui/react";
+
 const ItemList = ({ bikes }) => {
   return (
     <>

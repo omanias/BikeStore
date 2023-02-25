@@ -1,4 +1,4 @@
-import { Heading, Center, Box, Image } from "@chakra-ui/react";
+import { Center, Box, Image } from "@chakra-ui/react";
 
 const Welcome = () => {
   return (
