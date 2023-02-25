@@ -1,5 +1,4 @@
 import React from "react";
-// import bike from "../assets/x-blaze.png";
 import {
   Center,
   Card,
