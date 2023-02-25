@@ -9,7 +9,7 @@ import {
   CardFooter,
   Divider,
 } from "@chakra-ui/react";
-import bikeImage from "../assets/x-blaze.png";
+// import bikeImage from "../assets/x-blaze.png";
 import { useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
@@ -28,10 +28,8 @@ const ItemDetail = ({ bikes }) => {
 
     getDoc(biciRef).then((snapshot) => {
       if (snapshot.exists()) {
-        // console.log("Document data:", snapshot.data());
         setProducto(snapshot.data());
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     });
@@ -46,7 +44,7 @@ const ItemDetail = ({ bikes }) => {
           <Center p="1rem">
             <Card className="card-main">
               <CardBody>
-                <Image borderRadius="lg" src={bikeImage} />
+                <Image borderRadius="lg" src={bike.image} />
                 <Stack mt="6" spacing="3">
                   <Heading size="md">{bike.name}</Heading>
                   <Text color="blue.800" fontSize="l">

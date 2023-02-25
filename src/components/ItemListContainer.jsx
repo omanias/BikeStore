@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { Heading, Center } from "@chakra-ui/react";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 const ItemListContainer = () => {
   const [bikes, setBikes] = useState([]);

@@ -2,7 +2,7 @@ import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 const ItemDetailContainer = () => {
-  const [Data, setData] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     const db = getFirestore();
     const bikesCollection = collection(db, "bicicletas");
@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
     });
   }, []);
 
-  return <ItemDetail bikes={Data} />;
+  return <ItemDetail bikes={data} />;
 };
 
 export default ItemDetailContainer;
