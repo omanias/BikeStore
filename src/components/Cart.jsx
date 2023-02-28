@@ -24,18 +24,6 @@ const Cart = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
-  // const handleSubmit = (e) => {
-  //   console.log(e);
-  //   e.preventDefault();
-  //   console.log(userName);
-  //   console.log(userEmail);
-  //   alert("Formulario enviado");
-  // };
-
-  // const deleteId = cart.map((item) => {
-  //   return item.id;
-  // });
-
   return (
     <>
       <Center bg="#D6EAF8" h="100px" color="black">
@@ -45,12 +33,8 @@ const Cart = () => {
       </Center>
       {cart.map((item) => {
         return (
-          <Container
-            key={item.id}
-            maxW="container.sm"
-            className="main-catalogue"
-          >
-            <Card maxW="sm" m="3rem">
+          <Container key={item.id} className="main-catalogue">
+            <Card maxW="sm">
               <CardHeader>
                 <Heading size="md">{item.name}</Heading>
               </CardHeader>

@@ -1,3 +1,14 @@
+import {
+  Container,
+  Heading,
+  Stack,
+  Input,
+  Button,
+  Text,
+  Center,
+  FormControl,
+  FormLabel,
+} from "@chakra-ui/react";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import { useState } from "react";
 
@@ -26,22 +37,31 @@ const SendOrder = () => {
 
   return (
     <div>
-      <h1>Sending orders</h1>
+      <Center>
+        <Heading>Sending orders</Heading>
+      </Center>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre y Apellido"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="E-mail"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Send information</button>
-      </form>
-      <p>Order Id: {orderId}</p>
+      <Container>
+        <FormControl>
+          <form onSubmit={handleSubmit}>
+            <FormLabel>NAME</FormLabel>
+            <Input size="lg" onChange={(e) => setName(e.target.value)} />
+            <FormLabel>EMAIL</FormLabel>
+            <Input size="lg" onChange={(e) => setEmail(e.target.value)} />
+            <Button colorScheme="blue" type="submit" m={5}>
+              Send Infomation
+            </Button>
+          </form>
+        </FormControl>
+      </Container>
+      <Center>
+        <Text as="b" m={3} fontSize="xl">
+          Order ID:{" "}
+        </Text>
+        <Text as="mark" fontSize="2xl">
+          {orderId}
+        </Text>
+      </Center>
     </div>
   );
 };
